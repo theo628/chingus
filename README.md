@@ -14,21 +14,16 @@ npm run preview    # serve dist/ locally
 
 ## Live
 
-Published as a Claude Artifact (free, no account setup needed):
-**https://claude.ai/artifact/CqgeHeqFrfx2nfCey7nkav**
+**https://theo628.github.io/chingus/** — public, free, no sign-in needed.
 
-It is private until you open the page and use its **Share** menu; anyone with the link can then open it.
-This copy has no icebreaker server (built-in lines are used) and no offline/install support, since it is
-served from a shared path. Republish it after changes with:
+Hosted on GitHub Pages from this repo. Every push to `main` runs the unit tests, builds and redeploys
+(`.github/workflows/deploy-pages.yml`); Pages is set to the "GitHub Actions" source. Installable to a
+phone home screen and works offline after the first visit. Icebreakers use the built-in lines, because
+GitHub Pages serves static files only — deploy to Vercel instead (it also runs `api/icebreaker.js`) for
+AI-written ones. A custom domain like chingus.in can be added in Settings → Pages.
 
-```bash
-VITE_ARTIFACT=1 npx vite build --outDir dist-artifact
-```
-
-For a public site on your own domain, push this repo to GitHub and turn on
-Settings → Pages → Source: **GitHub Actions** — `.github/workflows/deploy-pages.yml` builds, tests and
-deploys on every push to `main`. Netlify and Vercel also work: build `npm run build`, publish `dist`
-(Vercel additionally runs `api/icebreaker.js`, which is the only host option that enables AI icebreakers).
+There is also a private Claude Artifact copy: https://claude.ai/artifact/CqgeHeqFrfx2nfCey7nkav
+(rebuild it with `VITE_ARTIFACT=1 npx vite build --outDir dist-artifact`).
 
 ## Tests
 
